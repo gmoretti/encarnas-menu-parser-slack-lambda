@@ -1,5 +1,4 @@
 const cheerio = require('cheerio');
-const moment = require('moment');
 const request = require('axios');
 
 exports.handler = async (event) => {
@@ -26,7 +25,11 @@ function extractMenuFromHTML(html) {
     stringMenuList += $(element).text() + '\n';
   });
 
-  return stringMenuList;
+  return applyPilotes(stringMenuList);
+}
+
+function applyPilotes(menuList) {
+  return menuList.replace(/Albóndigas/gi, ':pilotes: ¡OSTIA! Pilotes')
 }
 
 async function sendSlack(data) {
