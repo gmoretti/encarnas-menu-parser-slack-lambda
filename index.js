@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const request = require('axios');
+let slackToken = process.env.SLACK_TOKEN // This should exist as an environment variable in AWS LAMBDA
 
 exports.handler = async (event) => {
 
@@ -57,7 +58,7 @@ async function sendSlack(data) {
 },{
   headers: { 
     'Content-Type': 'application/json',
-    'Authorization': "Bearer slack-token-example",
+    'Authorization': "Bearer " + slackToken,
  }
 });
 }
