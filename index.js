@@ -33,10 +33,17 @@ function applyPilotes(menuList) {
   return menuList.replace(/Albóndigas/gi, ':pilotes: ¡OSTIA! Pilotes')
 }
 
+function containsGuisantes(menuList) {
+  return (menuList.includes(/guisantes/gi));
+}
+
 async function sendSlack(data) {
-  
-  const msg = ":realfood:*Mamma mia it's almost 11am!*, today *Encarnas* Specials are::realfood: \n";
-  
+
+  var msg = ":realfood:*Mamma mia it's almost 11am!*, today *Encarnas* Specials are::realfood: \n";
+  if (containsGuisantes(data)) {
+    msg = ":realfood:*ATTENTION EVERYONE!* Today *Encarnas* menu HAS NO GUISANTES::realfood: \n";
+  }
+
   const res = await request.post('https://slack.com/api/chat.postMessage', {
     'channel': 'random',
     'text': msg,
