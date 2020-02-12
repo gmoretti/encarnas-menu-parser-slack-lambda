@@ -40,7 +40,7 @@ function containsGuisantes(menuList) {
 async function sendSlack(data) {
 
   var msg = ":realfood:*Mamma mia it's almost 11am!*, today *Encarnas* Specials are::realfood: \n";
-  if (containsGuisantes(data)) {
+  if (!containsGuisantes(data)) {
     msg = ":realfood:*ATTENTION EVERYONE!* Today *Encarnas* menu HAS NO GUISANTES::realfood: \n";
   }
 
