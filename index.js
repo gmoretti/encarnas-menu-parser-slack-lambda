@@ -34,7 +34,7 @@ function applyPilotes(menuList) {
 }
 
 function containsGuisantes(menuList) {
-  return (menuList.includes(/guisantes/gi));
+  return menuList.toLowerCase().includes('guisantes');
 }
 
 async function sendSlack(data) {
