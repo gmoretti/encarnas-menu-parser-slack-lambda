@@ -26,11 +26,15 @@ function extractMenuFromHTML(html) {
     stringMenuList += $(element).text() + '\n';
   });
 
-  return applyPilotes(stringMenuList);
+  return tellTheTruth(applyPilotes(stringMenuList));
 }
 
 function applyPilotes(menuList) {
   return menuList.replace(/Albóndigas/gi, ':pilotes: ¡OSTIA! Pilotes')
+}
+
+function tellTheTruth(menuList) {
+  return menuList.replace(/salsa verde/gi, '~salsa verde~ GUISANTES')
 }
 
 function containsGuisantes(menuList) {
