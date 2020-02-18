@@ -34,7 +34,7 @@ function applyPilotes(menuList) {
 }
 
 function tellTheTruth(menuList) {
-  return menuList.replace(/salsa verde/gi, '~salsa verde~ GUISANTES')
+  return menuList.replace(/salsa verde/gi, '~salsa verde~ GUISANTES').replace(/verduras/gi, '~verduras~ probably more guisantes')
 }
 
 function containsGuisantes(menuList) {
