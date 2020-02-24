@@ -26,7 +26,7 @@ function extractMenuFromHTML(html) {
     stringMenuList += $(element).text() + '\n';
   });
 
-  return tellTheTruth(applyPilotes(stringMenuList));
+  return highlightGuisantes(tellTheTruth(applyPilotes(stringMenuList)));
 }
 
 function applyPilotes(menuList) {
@@ -34,7 +34,14 @@ function applyPilotes(menuList) {
 }
 
 function tellTheTruth(menuList) {
-  return menuList.replace(/salsa verde/gi, '~salsa verde~ GUISANTES').replace(/verduras/gi, '~verduras~ probably more guisantes')
+  return menuList.replace(/salsa verde/gi, '~salsa verde~ guisantes')
+                .replace(/verduras/gi, '~verduras~ probably more guisantes')
+                .replace(/verdura salteada/gi, '~verdura salteada~ guisantes')
+                .replace(/ verdura /gi, ' ~verdura~ probably guisantes')
+}
+
+function highlightGuisantes(menuList) {
+  return menuList.replace(/guisantes/gi, '*guisantes*')
 }
 
 function containsGuisantes(menuList) {
